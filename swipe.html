@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop — Swipe Mode</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="swipe-container">
+    <h2>👗 Swipe to Shop</h2>
+    <div class="product-card" id="productCard">
+      <img id="productImage" src="" alt="Product Image" />
+      <h3 id="productName"></h3>
+      <p id="productPrice"></p>
+    </div>
+
+    <div class="swipe-buttons">
+      <button onclick="skipProduct()">❌ Skip</button>
+      <button onclick="saveToWishlist()">💖 Wishlist</button>
+      <button onclick="buyNow()">🛒 Buy Now</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
