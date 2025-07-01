@@ -123,3 +123,36 @@ h1 {
   color: #008cff;
   font-weight: bold;
 }
+.upload-container {
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.upload-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upload-container input {
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.upload-container button {
+  padding: 12px;
+  font-size: 1rem;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.upload-container button:hover {
+  background: #5942d4;
+}
