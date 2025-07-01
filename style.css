@@ -89,3 +89,37 @@ h1 {
 .swipe-buttons button:hover {
   background: #ddd;
 }
+.wishlist-container {
+  padding: 20px;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+
+.wishlist-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.wishlist-item img {
+  width: 80px;
+  border-radius: 6px;
+}
+
+.wishlist-actions {
+  margin-top: 20px;
+}
+
+.btn-link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #008cff;
+  font-weight: bold;
+}
