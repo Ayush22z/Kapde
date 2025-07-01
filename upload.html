@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Product</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="upload-container">
+    <h2>📤 Upload Product</h2>
+    <form id="uploadForm">
+      <input type="text" id="name" placeholder="Product Name" required />
+      <input type="text" id="price" placeholder="Price (₹)" required />
+      <input type="text" id="image" placeholder="Image URL" required />
+      <input type="text" id="video" placeholder="(Optional) Reel/Video Link" />
+      <button type="submit">Upload</button>
+    </form>
+    <p id="statusMsg"></p>
+    <a href="seller.html" class="btn-link">⬅️ Back to Seller Dashboard</a>
+  </div>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const price = document.getElementById("price").value;
+      const image = document.getElementById("image").value;
+      const video = document.getElementById("video").value;
+
+      const newProduct = { name, price: `₹${price}`, image, video };
+
+      let uploads = JSON.parse(localStorage.getItem("uploads")) || [];
+      uploads.push(newProduct);
+      localStorage.setItem("uploads", JSON.stringify(uploads));
+
+      document.getElementById("statusMsg").innerText = "✅ Product uploaded!";
+      document.getElementById("uploadForm").reset();
+    });
+  </script>
+</body>
+</html>
