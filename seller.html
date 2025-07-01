@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seller Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h2>📦 My Products</h2>
+    <div id="productList"></div>
+    <a href="upload.html" class="btn-link">➕ Upload New Product</a>
+    <a href="index.html" class="btn-link">⬅️ Back to Home</a>
+  </div>
+
+  <script>
+    function loadUploads() {
+      const uploads = JSON.parse(localStorage.getItem("uploads")) || [];
+      const container = document.getElementById("productList");
+
+      if (uploads.length === 0) {
+        container.innerHTML = "<p>No products uploaded yet.</p>";
+        return;
+      }
+
+      uploads.forEach((product, index) => {
+        const div = document.createElement("div");
+        div.className = "product-item";
+        div.innerHTML = `
+          <img src="${product.image}" alt="${product.name}" />
+          <div>
+            <h4>${product.name}</h4>
+            <p>${product.price}</p>
+            ${product.video ? `<a href="${product.video}" target="_blank">🎥 View Reel</a>` : ""}
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    loadUploads();
+  </script>
+</body>
+</html>
