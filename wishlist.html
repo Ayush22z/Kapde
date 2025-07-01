@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Wishlist</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wishlist-container">
+    <h2>💖 My Wishlist</h2>
+    <div id="wishlistItems"></div>
+
+    <div class="wishlist-actions">
+      <button onclick="clearWishlist()">🗑 Clear Wishlist</button>
+      <a href="swipe.html" class="btn-link">⬅️ Back to Shopping</a>
+    </div>
+  </div>
+
+  <script>
+    function loadWishlist() {
+      const container = document.getElementById("wishlistItems");
+      const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+      if (wishlist.length === 0) {
+        container.innerHTML = "<p>No items yet 😢</p>";
+        return;
+      }
+
+      wishlist.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "wishlist-item";
+        div.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" />
+          <div>
+            <h4>${item.name}</h4>
+            <p>${item.price}</p>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    function clearWishlist() {
+      localStorage.removeItem("wishlist");
+      location.reload();
+    }
+
+    loadWishlist();
+  </script>
+</body>
+</html>
