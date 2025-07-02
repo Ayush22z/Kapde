@@ -3,25 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop — Swipe Mode</title>
+  <title>Swipe to Shop</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="swipe-container">
-    <h2>👗 Swipe to Shop</h2>
+    <h2>🛍 Discover Your Look</h2>
+
     <div class="product-card" id="productCard">
-      <img id="productImage" src="" alt="Product Image" />
-      <h3 id="productName"></h3>
-      <p id="productPrice"></p>
+      <img id="productImage" src="" alt="Product" />
+      <h3 id="productName">Product Name</h3>
+      <p id="productPrice">₹0</p>
     </div>
 
     <div class="swipe-buttons">
-      <button onclick="skipProduct()">❌ Skip</button>
-      <button onclick="saveToWishlist()">💖 Wishlist</button>
-      <button onclick="buyNow()">🛒 Buy Now</button>
+      <button onclick="skipProduct()">❌</button>
+      <button onclick="saveToWishlist()">💖</button>
+      <button onclick="goToProduct()">🛒</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const products = [
+      {
+        name: "Oversized Tee – Peach",
+        price: "₹799",
+        image: "https://images.unsplash.com/photo-1600180758890-6e3f43b3e6f4"
+      },
+      {
+        name: "Denim Jacket – Classic Blue",
+        price: "₹1,499",
+        image: "https://images.unsplash.com/photo-1562158070-9c5d2a6b3e0f"
+      },
+      {
+        name: "Summer Dress – Floral",
+        price: "₹1,299",
+        image: "https://images.unsplash.com/photo-1587300003388-59208cc962cb"
+      }
+    ];
+
+    let current = 0;
+
+    function showProduct(index) {
+      const product = products[index];
+      document.getElementById("productImage").src = product.image;
+      document.getElementById("productName").innerText = product.name;
+      document.getElementById("productPrice").innerText = product.price;
+    }
+
+    function skipProduct() {
+      current = (current + 1) % products.length;
+      showProduct(current);
+    }
+
+    function saveToWishlist() {
+      const product = products[current];
+      let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+      wishlist.push(product);
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      alert("💖 Added to Wishlist!");
+      skipProduct();
+    }
+
+    function goToProduct() {
+      const product = products[current];
+      localStorage.setItem("viewProduct", JSON.stringify(product));
+      window.location.href = "product.html";
+    }
+
+    showProduct(current);
+  </script>
 </body>
 </html>
