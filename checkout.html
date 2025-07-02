@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="checkout-container">
+    <h2>💳 Checkout</h2>
+
+    <div id="checkoutProduct" class="checkout-card"></div>
+
+    <button onclick="payNow()">✅ Pay Now</button>
+    <a href="product.html" class="btn-link">⬅️ Back to Product</a>
+  </div>
+
+  <script>
+    const product = JSON.parse(localStorage.getItem("viewProduct"));
+
+    function loadCheckout() {
+      if (!product) {
+        document.getElementById("checkoutProduct").innerHTML = "<p>No product selected.</p>";
+        return;
+      }
+
+      const html = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h4>${product.name}</h4>
+        <p>${product.price}</p>
+      `;
+      document.getElementById("checkoutProduct").innerHTML = html;
+    }
+
+    function payNow() {
+      alert("Payment successful (mock)");
+      window.location.href = "thankyou.html";
+    }
+
+    loadCheckout();
+  </script>
+</body>
+</html>
