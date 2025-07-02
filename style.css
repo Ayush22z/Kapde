@@ -156,3 +156,26 @@ h1 {
 .upload-container button:hover {
   background: #5942d4;
 }
+.product-detail-container {
+  padding: 20px;
+  text-align: center;
+  max-width: 400px;
+  margin: auto;
+}
+
+.product-detail-container img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.buy-now-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  background: #ff6b81;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
