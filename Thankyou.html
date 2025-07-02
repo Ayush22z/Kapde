@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Confirmed</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="thankyou-container">
+    <h1>🎉 Thank You!</h1>
+    <p>Your order has been placed successfully.</p>
+
+    <div id="orderSummary" class="order-summary"></div>
+
+    <a href="swipe.html" class="btn-link">🔁 Continue Shopping</a>
+    <a href="index.html" class="btn-link">🏠 Home</a>
+  </div>
+
+  <script>
+    const product = JSON.parse(localStorage.getItem("viewProduct"));
+
+    function loadOrderSummary() {
+      if (!product) return;
+
+      const html = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h4>${product.name}</h4>
+        <p>${product.price}</p>
+      `;
+      document.getElementById("orderSummary").innerHTML = html;
+
+      // Optional: clear product from localStorage after confirmation
+      localStorage.removeItem("viewProduct");
+    }
+
+    loadOrderSummary();
+  </script>
+</body>
+</html>
