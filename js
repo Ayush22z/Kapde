@@ -45,3 +45,6 @@ function buyNow() {
 }
 
 showProduct(current)
+
+localStorage.setItem("viewProduct", JSON.stringify(product));
+window.location.href = "product.html";
