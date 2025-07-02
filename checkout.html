@@ -8,11 +8,11 @@
 </head>
 <body>
   <div class="checkout-container">
-    <h2>💳 Checkout</h2>
+    <h2>💳 Confirm Order</h2>
 
-    <div id="checkoutProduct" class="checkout-card"></div>
+    <div class="checkout-card" id="checkoutCard"></div>
 
-    <button onclick="payNow()">✅ Pay Now</button>
+    <button onclick="payNow()" class="pay-now-btn">✅ Pay Now</button>
     <a href="product.html" class="btn-link">⬅️ Back to Product</a>
   </div>
 
@@ -20,21 +20,21 @@
     const product = JSON.parse(localStorage.getItem("viewProduct"));
 
     function loadCheckout() {
+      const box = document.getElementById("checkoutCard");
       if (!product) {
-        document.getElementById("checkoutProduct").innerHTML = "<p>No product selected.</p>";
+        box.innerHTML = "<p>No product selected.</p>";
         return;
       }
 
-      const html = `
+      box.innerHTML = `
         <img src="${product.image}" alt="${product.name}" />
         <h4>${product.name}</h4>
         <p>${product.price}</p>
       `;
-      document.getElementById("checkoutProduct").innerHTML = html;
     }
 
     function payNow() {
-      alert("Payment successful (mock)");
+      alert("🎉 Payment successful (simulated)");
       window.location.href = "thankyou.html";
     }
 
