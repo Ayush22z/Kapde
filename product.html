@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Details</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -11,9 +11,7 @@
     <img id="productImage" src="" alt="Product Image" />
     <h2 id="productName">Product Name</h2>
     <p id="productPrice">₹0</p>
-    <p id="productDesc">This is a beautiful, Gen-Z style outfit perfect for your next reel 💅</p>
-
-    <div id="productVideoLink"></div>
+    <p id="productDesc">This Gen-Z styled piece is the perfect fit for your next reel 🔥</p>
 
     <a href="checkout.html" class="buy-now-btn">🛒 Buy Now</a>
     <a href="swipe.html" class="btn-link">⬅️ Back to Swiping</a>
@@ -26,9 +24,6 @@
       document.getElementById("productImage").src = product.image;
       document.getElementById("productName").innerText = product.name;
       document.getElementById("productPrice").innerText = product.price;
-      if (product.video) {
-        document.getElementById("productVideoLink").innerHTML = `<a href="${product.video}" target="_blank">🎥 Watch Reel</a>`;
-      }
     }
   </script>
 </body>
